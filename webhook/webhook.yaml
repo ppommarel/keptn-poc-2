@@ -1,0 +1,20 @@
+apiVersion: webhookconfig.keptn.sh/v1beta1
+kind: WebhookConfig
+metadata:
+  name: webhook-configuration
+spec:
+  webhooks:
+    - type: sh.keptn.event.test.triggered
+      requests:
+        - url: https://cloud.gatling.io/api/public/simulations/?simulation=cbbcb67f-0b9c-4cec-aebf-d5cea381ca3f
+          payload: >-
+            {"extraSystemProperties":{"GATLING_CLIENT_ID":"1a89345b-2a24-4805-9071-ce9967b6aec0","GATLING_OPCO":"AUTH_POC","simulation":"Facility/searchOpenedNowFacilityByAddress","rampup":"0","baseUrl":"http://20.74.106.198:9001","usersPerSecInitial":"0","users":"1","GATLING_ENV":"perf","GATLING_SUBSCRIPTION_KEY":"ca0086d18b9a4510883672cf56862b5f","loadType":"Open/constantUsersPerSec","GATLING_USERNAME":"test.dev@sonepar.com","usersPerSecDuration":"25","GATLING_ACCOUNT_ID":"ERP_account_preprod","usersPerSecFinal":"0","usersPerSec":"10","maxDuration":"120","GATLING_PASSWORD":"Woxo2399"}}
+          headers:
+            - key: Content-Type
+              value: text/plain
+            - key: authorization
+              value: ERQ7qy77c2yJfU2emebhrSWegj3WpsXgpTzGTZ5foq6IR-H9569I2lk5MJTjul77c
+          method: POST
+      subscriptionID: 6e31ed28-b3cd-4108-9cc3-d6cebebf4c79
+      sendFinished: true
+      sendStarted: true
