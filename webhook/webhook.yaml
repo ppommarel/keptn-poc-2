@@ -1,0 +1,19 @@
+apiVersion: webhookconfig.keptn.sh/v1beta1
+kind: WebhookConfig
+metadata:
+  name: webhook-configuration
+spec:
+  webhooks:
+    - type: sh.keptn.event.test.triggered
+      requests:
+        - url: https://cloud.gatling.io/api/public/simulations/cbbcb67f-0b9c-4cec-aebf-d5cea381ca3f
+          payload: ""
+          headers:
+            - key: authorization
+              value: ERQ7qy77c2yJfU2emebhrSWegj3WpsXgpTzGTZ5foq6IR-H9569I2lk5MJTjul77c
+            - key: Content-Type
+              value: text/plain
+          method: GET
+      subscriptionID: c4fcc562-a8d7-4863-870c-bd8e6b249f1b
+      sendFinished: true
+      sendStarted: true
