@@ -1,0 +1,14 @@
+
+apiVersion: v2
+actions:
+  - name: "Run gatling tests"
+    events:
+      - name: "sh.keptn.event.gatling-test.triggered"
+    tasks:
+      - name: "Run gatling"
+        files:
+          - gatling/script.sh
+          - gatling/data.json
+        image: "cfmanteiga/alpine-bash-curl-jq"
+        cmd: ["/bin/bash"]
+        args: ["/keptn/gatling/script.sh","cbbcb67f-0b9c-4cec-aebf-d5cea381ca3f","/keptn/gatling/data.json","180"]
